@@ -15,7 +15,25 @@ var NorthwindStore;
                     this.scope.getById = this.getById;
                     this.scope.items = [];
                     this.getAll();
+                    this.scope.$watch('filterText', $.proxy(this.filterByName, this));
                 }
+                ProductController.prototype.filterByName = function () {
+                    var predicateProxy = $.proxy(this.filterByNamePredicate, this);
+                    this.filter(predicateProxy);
+                };
+                ProductController.prototype.filterByNamePredicate = function (item) {
+                    if (this.scope.filterText) {
+                        var filterText = this.scope.filterText.toLowerCase();
+                        var name = item.data.Name.toLowerCase();
+                        return name.indexOf(filterText) > -1;
+                    }
+                    return true;
+                };
+                ProductController.prototype.filter = function (predicate) {
+                    this._.each(this.scope.items, function (item) {
+                        item.isVisible = predicate(item);
+                    }, this);
+                };
                 ProductController.prototype.getAll = function () {
                     var callbackProxy = $.proxy(this.getAllCallback, this);
                     this.repository.getProducts().then(callbackProxy);
@@ -24,8 +42,8 @@ var NorthwindStore;
                     this._.each(data.data, this.addToScope, this);
                 };
                 ProductController.prototype.addToScope = function (item) {
-                    var viewModelItem;
-                    this.scope.items.push(item);
+                    var itemVm = new ProductViewModel(item);
+                    this.scope.items.push(itemVm);
                 };
                 ProductController.prototype.getById = function () {
                     this.repository.getProducts();
@@ -35,7 +53,9 @@ var NorthwindStore;
             })();
             Products.ProductController = ProductController;
             var ProductViewModel = (function () {
-                function ProductViewModel() {
+                function ProductViewModel(product) {
+                    this.data = product;
+                    this.isVisible = true;
                 }
                 return ProductViewModel;
             })();

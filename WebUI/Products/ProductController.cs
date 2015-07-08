@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using Northwind.BusinessLogic.Products;
+using DataAccess.Products;
 
 namespace NorthwindStore.WebUI.Products
 {

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using Northwind.BusinessLogic.Products;
+using DataAccess.Products;
 
 namespace NorthwindStore.WebUI.Areas.Administration.Product
 {

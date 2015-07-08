@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
 using Common.ServiceLocation;
-using Data.Queries.RavenDb;
+using DataAccess.Products;
+using DataAccess.Queries.RavenDb;
 using Infrastructure.RavenDb;
-using Northwind.BusinessLogic.Products;
 using NorthwindStore.WebUI.DependencyResolution.StructureMap;
 
 namespace NorthwindStore.WebUI.DependencyResolution
