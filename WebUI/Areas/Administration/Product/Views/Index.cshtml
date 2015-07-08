@@ -1,0 +1,31 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+
+@{
+
+}
+
+<h2>title</h2>
+
+<div>
+    <div data-ng-controller="ProductController">
+
+        <a href="" data-ng-click="getAll()">Get All</a>
+
+        <div class="row">
+            <label for="filterBox">Filter by name </label>
+            <input id="filterBox" data-ng-model="filterText"/>
+        </div>
+
+        <div>{{filterText}}</div>
+
+        <div class="row" data-ng-repeat="item in items">
+            <h2>{{item.Name}}</h2>
+            <div>Units in stock : {{item.Units}}</div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+   @Scripts.Render("~/bundles/product")
+}

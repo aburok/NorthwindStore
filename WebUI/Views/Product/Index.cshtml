@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Northwind.Domain.Product>
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>title</h2>
+
+<div class="container">
+    @foreach (var prod in Model)
+    {
+        <div class="row">
+            <h2>@prod.Name</h2>
+            <strong>@prod.Category</strong>
+            <p>Quentity Per Unit @prod.QuantityPerUnit, Price Per Unit: @prod.PricePerUnit</p>
+        </div>
+    }
+</div>
