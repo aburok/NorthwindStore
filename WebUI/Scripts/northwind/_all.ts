@@ -5,5 +5,7 @@ module Common {
         static scope = "$scope";
         static http = "$http";
         static underscore = "underscore";
+
+        static moduleName = "Common";
     }
 }

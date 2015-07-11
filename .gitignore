@@ -197,5 +197,5 @@ FakesAssemblies/
 
 # PROJECT SPECIFIC
 # Ignore js generated from TypeScript
-Administration/*/*.js
-
+/WebUI/Areas/Administration/**/*.js
+/WebUI/Areas/Administration/**/*.js.map

@@ -7,6 +7,7 @@ var Common;
         Names.scope = "$scope";
         Names.http = "$http";
         Names.underscore = "underscore";
+        Names.moduleName = "Common";
         return Names;
     })();
     Common.Names = Names;

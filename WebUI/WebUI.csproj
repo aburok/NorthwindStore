@@ -405,7 +405,6 @@
     <TypeScriptCompile Include="Areas\Administration\Common\Scripts\Names.ts" />
     <TypeScriptCompile Include="Areas\Administration\Company\Scripts\CompanyController.ts" />
     <TypeScriptCompile Include="Areas\Administration\Company\Scripts\CompanyModule.ts" />
-    <TypeScriptCompile Include="Areas\Administration\Company\Scripts\CompanyRepository.ts" />
     <TypeScriptCompile Include="Areas\Administration\Company\Scripts\ICompanyRepository.ts" />
     <TypeScriptCompile Include="Areas\Administration\Company\Scripts\_allCompany.ts" />
     <TypeScriptCompile Include="Areas\Administration\Product\Scripts\IProductRepository.ts" />

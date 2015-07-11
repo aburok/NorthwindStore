@@ -3,6 +3,12 @@
 // TODO : maybe there is a better way
 
 module NorthwindStore.Admin {
-    export var iCompanyRepository: string = 'CompanyRepository';
-    export var iCompanyCtrl: string = 'CompanyController';
+    export class Names {
+        static moduleName = "NorthwindStore";
+        static iCompanyRepositoryName = "CompanyRepository";
+        static iCompanyCtrl = "CompanyController";
+
+        static productRepository = "ProductRepository";
+        static productController = "ProductController";
+    }
 }

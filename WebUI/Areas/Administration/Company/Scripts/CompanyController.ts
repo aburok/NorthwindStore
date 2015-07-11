@@ -8,7 +8,7 @@ module NorthwindStore.Admin.Company {
 
         static $inject = [
             Common.Names.scope,
-            Admin.iCompanyRepositoryName,
+            Admin.Names.iCompanyRepositoryName,
             Common.Names.underscore];
 
         constructor($scope: ICompanyScope,

@@ -1,10 +1,7 @@
 ﻿/// <reference path="_allCompany.ts"/>
 
 module NorthwindStore.Admin.Company {
-
-    var store = angular.module('NorthwindStore', ['Common'])
-        //.controller(Admin.iCompanyCtrl, CompanyController)
-        .service("CompanyRepository", CompanyRepository)
-        .controller("CompanyController", CompanyController);
-    //.service(Admin.iCompanyRepository, CompanyRepository);
+    angular.module(Admin.Names.moduleName, [Common.Names.moduleName])
+        .service(Admin.Names.iCompanyRepositoryName, CompanyRepository)
+        .controller(Admin.Names.iCompanyCtrl, CompanyController);
 }
