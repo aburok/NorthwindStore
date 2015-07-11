@@ -205,11 +205,16 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Company\CompanyController.cs" />
+    <Compile Include="Areas\Administration\Company\CompanyDto.cs" />
     <Compile Include="Areas\Administration\Config\BundleConfig.cs" />
+    <Compile Include="Areas\Administration\Config\OrderedBundle.cs" />
+    <Compile Include="Areas\Administration\Config\ScriptsOrder.cs" />
     <Compile Include="Areas\Administration\Home\HomeController.cs" />
     <Compile Include="Areas\Administration\Product\ProductController.cs" />
     <Compile Include="Areas\Administration\Product\ProductDto.cs" />
     <Compile Include="Areas\Administration\Supplier\SupplierController.cs" />
+    <Compile Include="Areas\Administration\Supplier\SupplierDto.cs" />
     <Compile Include="Areas\CustomRazorViewEngine.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -296,6 +301,7 @@
     <Content Include="Areas\Administration\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Home\Views\Index.cshtml" />
     <Content Include="Areas\Administration\Supplier\Views\Index.cshtml" />
+    <Content Include="Areas\Administration\Company\Views\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -386,12 +392,22 @@
       <Project>{07E3C188-CA92-4032-9B72-F52D2D798415}</Project>
       <Name>DataAccess.Queries.RavenDb</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RavenDb\DataAccess.RavenDb\DataAccess.RavenDb.csproj">
+      <Project>{FCA83705-27CF-457F-A447-3A5103280AA0}</Project>
+      <Name>DataAccess.RavenDb</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RavenDb\Infrastructure.RavenDb\Infrastructure.RavenDb.csproj">
       <Project>{589C3B83-FD47-4F5B-8947-9E41BCE4EF4C}</Project>
       <Name>Infrastructure.RavenDb</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Areas\Administration\Common\Scripts\Names.ts" />
+    <TypeScriptCompile Include="Areas\Administration\Company\Scripts\CompanyController.ts" />
+    <TypeScriptCompile Include="Areas\Administration\Company\Scripts\CompanyModule.ts" />
+    <TypeScriptCompile Include="Areas\Administration\Company\Scripts\CompanyRepository.ts" />
+    <TypeScriptCompile Include="Areas\Administration\Company\Scripts\ICompanyRepository.ts" />
+    <TypeScriptCompile Include="Areas\Administration\Company\Scripts\_allCompany.ts" />
     <TypeScriptCompile Include="Areas\Administration\Product\Scripts\IProductRepository.ts" />
     <TypeScriptCompile Include="Areas\Administration\Product\Scripts\ProductController.ts" />
     <TypeScriptCompile Include="Areas\Administration\Product\Scripts\ProductModule.ts" />

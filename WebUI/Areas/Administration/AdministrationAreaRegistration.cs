@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
+using NorthwindStore.WebUI.Areas.Administration.Company;
 using NorthwindStore.WebUI.Areas.Administration.Product;
 using NorthwindStore.WebUI.Controllers;
 
@@ -30,7 +31,8 @@ namespace NorthwindStore.WebUI.Areas.Administration
                 },
                 namespaces: new[] { 
                     typeof(HomeController).Namespace,
-                    typeof(ProductController).Namespace
+                    typeof(ProductController).Namespace,
+                    typeof(CompanyController).Namespace
                 }
             );
 

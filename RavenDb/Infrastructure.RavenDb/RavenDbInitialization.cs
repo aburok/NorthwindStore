@@ -8,6 +8,7 @@ namespace Infrastructure.RavenDb
         public static void Initialize(IServiceLocator serviceLocator)
         {
             serviceLocator.ForUse<IRavenConfiguration, InCodeRavenConfiguration>();
+            serviceLocator.ForUse<IDocumentStoreProvider, RequestDocumentStoreProvider>();
         }
     }
 }

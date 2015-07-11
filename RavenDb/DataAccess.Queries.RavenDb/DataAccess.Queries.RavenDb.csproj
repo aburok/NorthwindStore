@@ -51,7 +51,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryHandlerRavenDbBase.cs" />
     <Compile Include="QueryRavenDbInitialization.cs" />
-    <Compile Include="Suppliers\SupplierRepositoryRavenDb.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.csproj">

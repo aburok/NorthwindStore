@@ -24,7 +24,9 @@ namespace DataAccess.Queries.RavenDb.Products
 
         protected override ProductQueryResult GetQuery(IDocumentSession session)
         {
-            var item = session.Load<Product>(new List<string> {Query.ID}).FirstOrDefault();
+            var item = session
+                .Load<Northwind.Domain.Product>(new List<string> {Query.ID})
+                .FirstOrDefault();
 
             return new ProductQueryResult()
             {

@@ -1,14 +1,13 @@
 /// <reference path="_allProduct.ts"/>
 
 module NorthwindStore.Admin.Products {
-    import HttpPromiseCallbackArg = angular.IHttpPromiseCallbackArg;
 
     export class ProductController {
         private repository: IProductRepository;
         private scope: IProductScope;
         _: UnderscoreStatic;
 
-        static $inject = ["$scope", "ProductRepository", "underscore"];
+        static $inject = [Common.Names.scope, "ProductRepository", "underscore"];
 
         constructor($scope: IProductScope,
             repository: IProductRepository,
@@ -54,7 +53,7 @@ module NorthwindStore.Admin.Products {
                 .then(callbackProxy);
         }
 
-        getAllCallback(data: HttpPromiseCallbackArg<ProductDto[]>) {
+        getAllCallback(data: ng.IHttpPromiseCallbackArg<ProductDto[]>) {
             this._.each(
                 data.data,
                 this.addToScope,

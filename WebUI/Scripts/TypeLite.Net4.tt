@@ -12,8 +12,7 @@
 
 <# var ts = TypeScript.Definitions()
 		.WithReference("Enums.ts")
-		.ForLoadedAssemblies()
-		.For<NorthwindStore.WebUI.Areas.Administration.ProductAdmin.ProductDto>();
+		.ForLoadedAssemblies();
 #>
 
 <#= ts.Generate(TsGeneratorOutput.Properties) #>

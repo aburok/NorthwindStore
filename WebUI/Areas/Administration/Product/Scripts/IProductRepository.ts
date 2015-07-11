@@ -1,6 +1,7 @@
 /// <reference path="_allProduct.ts"/>
 
 module NorthwindStore.Admin.Products {
+
     export interface IProductRepository {
         getProducts(): ng.IPromise<ProductDto[]>;
 
@@ -15,15 +16,15 @@ module NorthwindStore.Admin.Products {
 
         http: ng.IHttpService;
 
-        static $inject = ['$http'];
+        static $inject = ["$http"];
 
         constructor($http: ng.IHttpService) {
             this.http = $http;
         }
 
-        getProducts(): ng.IHttpPromise<Products.ProductDto[]> {
+        getProducts(): ng.IHttpPromise<ProductDto[]> {
             var result = this.http
-                .get<Products.ProductDto[]>(this.apiAddress + this.getAllMethod);
+                .get<ProductDto[]>(this.apiAddress + this.getAllMethod);
             return result;
         }
 

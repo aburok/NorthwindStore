@@ -1,6 +1,6 @@
 /// <reference path="_allSuppliers.ts"/>
 
-module NorthwindStore.Admin.Suppliers {
+module NorthwindStore.Admin.Supplier {
     export interface ISupplierRepository {
 
     }

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
 using Common.ServiceLocation;
-using DataAccess.Products;
+using DataAccess.Product;
 using DataAccess.Queries.RavenDb;
+using DataAccess.RavenDb;
 using Infrastructure.RavenDb;
 using NorthwindStore.WebUI.DependencyResolution.StructureMap;
 
@@ -20,6 +21,8 @@ namespace NorthwindStore.WebUI.DependencyResolution
             QueryRavenDbInitialization.Initialize(Current);
 
             RavenDbInitialization.Initialize(Current);
+
+            DataAccessRavenDbInitialization.Init(Current);
 
             Current.ForUse<IProductRepository, ProductRepository>();
         }

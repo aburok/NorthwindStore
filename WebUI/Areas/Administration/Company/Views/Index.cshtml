@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Company List</h2>
+
+<div data-ng-controller="CompanyController">
+    <div class="row" data-ng-repeat="company in companyList">
+        <h4>{{company.data.Name}}</h4>
+        <span>{{company.data.Contact.Name}}</span>
+        <p>{{company.data.Phone}}</p>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/company")
+}

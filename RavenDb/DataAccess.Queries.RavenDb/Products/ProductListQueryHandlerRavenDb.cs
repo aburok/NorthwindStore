@@ -2,7 +2,6 @@ using System.Linq;
 using Common.Queries;
 using Infrastructure.RavenDb.Configuration;
 using Northwind.DataAccess.Queries.Products;
-using Northwind.Domain;
 using Raven.Client;
 
 namespace DataAccess.Queries.RavenDb.Products
@@ -25,7 +24,7 @@ namespace DataAccess.Queries.RavenDb.Products
         protected override ProductListResult GetQuery(IDocumentSession session)
         {
             var items = session
-                .Query<Product>()
+                .Query<Northwind.Domain.Product>()
                 .ToList();
 
             return new ProductListResult(items);

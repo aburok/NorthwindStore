@@ -10,7 +10,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body data-ng-app="NorthwindStore">
+<body >
 
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -28,12 +28,13 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Product Admin", "Index", "Product", new { area = AdministrationAreaRegistration.Name }, new { }))</li>
+                    <li>@Html.ActionLink("Companies", "Index", "Company", new { area = AdministrationAreaRegistration.Name }, new { }))</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" data-ng-app="NorthwindStore">
         @RenderBody()
         <hr />
         <footer>
@@ -45,6 +46,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/common")
+    @Scripts.Render("~/bundles/names")
 
     @RenderSection("scripts", required: false)
 </body>

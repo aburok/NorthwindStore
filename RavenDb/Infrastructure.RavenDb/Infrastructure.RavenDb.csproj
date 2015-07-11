@@ -46,10 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDocumentStoreProvider.cs" />
     <Compile Include="RavenDbInitialization.cs" />
     <Compile Include="Configuration\InCodeRavenConfiguration.cs" />
     <Compile Include="Configuration\IRavenConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestDocumentStoreProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
