@@ -2,24 +2,19 @@
 module NorthwindStore.Admin.Company {
 
     export interface ICompanyRepository {
-        getComapanyList(): ng.IHttpPromise<CompanyDto[]>;
+        getAllItems(): ng.IHttpPromise<CompanyDto[]>;
     }
 
-    export class CompanyRepository implements ICompanyRepository {
+    export class CompanyRepository
+        extends Admin.BaseRepository<CompanyDto>
+        implements ICompanyRepository {
 
-        private http: angular.IHttpService;
-
-        private apiAddress: string = "/Administration/Company/GetCompanyList";
-
-        static $inject = [Common.Names.http];
+        static $inject = [Names.Angular.http];
 
         constructor($http: ng.IHttpService) {
-            this.http = $http;
-        }
-
-        getComapanyList() : ng.IHttpPromise<CompanyDto[]> {
-            var promis = this.http.get<CompanyDto[]>(this.apiAddress);
-            return promis;
+            super($http);
+            this.apiAddress = "/Administration/Company/";
+            this.getAllMethodName = "GetCompanyList";
         }
     }
 }

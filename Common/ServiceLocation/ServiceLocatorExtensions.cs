@@ -1,4 +1,6 @@
-﻿namespace Common.ServiceLocation
+﻿using System.Runtime.Remoting.Services;
+
+namespace Common.ServiceLocation
 {
     public static class ServiceLocatorExtensions
     {
@@ -8,6 +10,12 @@
             var useType = typeof (TUse);
 
             serviceLocator.ForUse(forType, useType);
+        }
+
+        public static TService GetInstance<TService>(this IServiceLocator serviceLocator) 
+            where TService : class
+        {
+            return serviceLocator.GetInstance(typeof (TService)) as TService;
         }
     }
 }

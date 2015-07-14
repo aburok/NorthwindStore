@@ -16,7 +16,7 @@ module NorthwindStore.Admin.Products {
 
         http: ng.IHttpService;
 
-        static $inject = [Common.Names.http];
+        static $inject = [Names.Angular.http];
 
         constructor($http: ng.IHttpService) {
             this.http = $http;

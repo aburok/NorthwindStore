@@ -1,0 +1,14 @@
+﻿
+<h2>List of orders</h2>
+
+<a href="#/add" class="btn-default">Add new</a>
+
+<div class="row" data-ng-repeat="order in orderList track by order.data.Id">
+    <h4>
+        <a href="" data-ng-click="showDetails(order)">
+            {{order.data.Company}}
+        </a>
+    </h4>
+    <p>{{order.data.Employee}}</p>
+    <p>Ordered at {{order.data.OrderedAt}}</p>
+</div>

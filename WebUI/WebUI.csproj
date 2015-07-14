@@ -208,14 +208,15 @@
     <Compile Include="Areas\Administration\Company\CompanyController.cs" />
     <Compile Include="Areas\Administration\Company\CompanyDto.cs" />
     <Compile Include="Areas\Administration\Config\BundleConfig.cs" />
-    <Compile Include="Areas\Administration\Config\OrderedBundle.cs" />
-    <Compile Include="Areas\Administration\Config\ScriptsOrder.cs" />
+    <Compile Include="Areas\Administration\Config\NameConventionOrderedBundle.cs" />
+    <Compile Include="Areas\Administration\Config\NameConventionScriptsOrderer.cs" />
     <Compile Include="Areas\Administration\Home\HomeController.cs" />
+    <Compile Include="Areas\Administration\Order\OrderController.cs" />
+    <Compile Include="Areas\Administration\Order\OrderDto.cs" />
     <Compile Include="Areas\Administration\Product\ProductController.cs" />
     <Compile Include="Areas\Administration\Product\ProductDto.cs" />
     <Compile Include="Areas\Administration\Supplier\SupplierController.cs" />
     <Compile Include="Areas\Administration\Supplier\SupplierDto.cs" />
-    <Compile Include="Areas\CustomRazorViewEngine.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -226,6 +227,7 @@
     <Compile Include="DependencyResolution\StructureMap\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMap\StructuremapMvc.cs" />
     <Compile Include="DependencyResolution\StructureMap\StructureMapScopeModule.cs" />
+    <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -236,6 +238,7 @@
     <Compile Include="Products\ProductController.cs" />
     <Compile Include="Products\ViewModels\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RazorEngine\CustomRazorViewEngine.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -245,76 +248,79 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\angular\angular-animate.js" />
-    <Content Include="Scripts\angular\angular-animate.min.js" />
-    <Content Include="Scripts\angular\angular-aria.js" />
-    <Content Include="Scripts\angular\angular-aria.min.js" />
-    <Content Include="Scripts\angular\angular-cookies.js" />
-    <Content Include="Scripts\angular\angular-cookies.min.js" />
-    <Content Include="Scripts\angular\angular-csp.css" />
-    <Content Include="Scripts\angular\angular-loader.js" />
-    <Content Include="Scripts\angular\angular-loader.min.js" />
-    <Content Include="Scripts\angular\angular-message-format.js" />
-    <Content Include="Scripts\angular\angular-message-format.min.js" />
-    <Content Include="Scripts\angular\angular-messages.js" />
-    <Content Include="Scripts\angular\angular-messages.min.js" />
-    <Content Include="Scripts\angular\angular-mocks.js" />
-    <Content Include="Scripts\angular\angular-resource.js" />
-    <Content Include="Scripts\angular\angular-resource.min.js" />
-    <Content Include="Scripts\angular\angular-route.js" />
-    <Content Include="Scripts\angular\angular-route.min.js" />
-    <Content Include="Scripts\angular\angular-sanitize.js" />
-    <Content Include="Scripts\angular\angular-sanitize.min.js" />
-    <Content Include="Scripts\angular\angular-scenario.js" />
-    <Content Include="Scripts\angular\angular-touch.js" />
-    <Content Include="Scripts\angular\angular-touch.min.js" />
-    <Content Include="Scripts\angular\angular.js" />
-    <Content Include="Scripts\angular\angular.min.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_de-de.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_de.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_en-gb.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_en-us.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_en.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_es-es.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_es.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_fr-fr.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_fr.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_pl-pl.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_pl.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\vendor\angular\angular-animate.js" />
+    <Content Include="Scripts\vendor\angular\angular-animate.min.js" />
+    <Content Include="Scripts\vendor\angular\angular-aria.js" />
+    <Content Include="Scripts\vendor\angular\angular-aria.min.js" />
+    <Content Include="Scripts\vendor\angular\angular-cookies.js" />
+    <Content Include="Scripts\vendor\angular\angular-cookies.min.js" />
+    <Content Include="Scripts\vendor\angular\angular-csp.css" />
+    <Content Include="Scripts\vendor\angular\angular-loader.js" />
+    <Content Include="Scripts\vendor\angular\angular-loader.min.js" />
+    <Content Include="Scripts\vendor\angular\angular-message-format.js" />
+    <Content Include="Scripts\vendor\angular\angular-message-format.min.js" />
+    <Content Include="Scripts\vendor\angular\angular-messages.js" />
+    <Content Include="Scripts\vendor\angular\angular-messages.min.js" />
+    <Content Include="Scripts\vendor\angular\angular-mocks.js" />
+    <Content Include="Scripts\vendor\angular\angular-resource.js" />
+    <Content Include="Scripts\vendor\angular\angular-resource.min.js" />
+    <Content Include="Scripts\vendor\angular\angular-route.js" />
+    <Content Include="Scripts\vendor\angular\angular-route.min.js" />
+    <Content Include="Scripts\vendor\angular\angular-sanitize.js" />
+    <Content Include="Scripts\vendor\angular\angular-sanitize.min.js" />
+    <Content Include="Scripts\vendor\angular\angular-scenario.js" />
+    <Content Include="Scripts\vendor\angular\angular-touch.js" />
+    <Content Include="Scripts\vendor\angular\angular-touch.min.js" />
+    <Content Include="Scripts\vendor\angular\angular.js" />
+    <Content Include="Scripts\vendor\angular\angular.min.js" />
+    <Content Include="Scripts\vendor\angular\i18n\angular-locale_de-de.js" />
+    <Content Include="Scripts\vendor\angular\i18n\angular-locale_de.js" />
+    <Content Include="Scripts\vendor\angular\i18n\angular-locale_en-gb.js" />
+    <Content Include="Scripts\vendor\angular\i18n\angular-locale_en-us.js" />
+    <Content Include="Scripts\vendor\angular\i18n\angular-locale_en.js" />
+    <Content Include="Scripts\vendor\angular\i18n\angular-locale_es-es.js" />
+    <Content Include="Scripts\vendor\angular\i18n\angular-locale_es.js" />
+    <Content Include="Scripts\vendor\angular\i18n\angular-locale_fr-fr.js" />
+    <Content Include="Scripts\vendor\angular\i18n\angular-locale_fr.js" />
+    <Content Include="Scripts\vendor\angular\i18n\angular-locale_pl-pl.js" />
+    <Content Include="Scripts\vendor\angular\i18n\angular-locale_pl.js" />
+    <Content Include="Scripts\vendor\bootstrap.js" />
+    <Content Include="Scripts\vendor\bootstrap.min.js" />
     <Content Include="Areas\Administration\web.config" />
     <Content Include="Areas\Administration\Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Scripts\errors.json" />
-    <Content Include="Scripts\angular\angular-animate.min.js.map" />
-    <Content Include="Scripts\angular\angular-aria.min.js.map" />
-    <Content Include="Scripts\angular\angular-cookies.min.js.map" />
-    <Content Include="Scripts\angular\angular-loader.min.js.map" />
-    <Content Include="Scripts\angular\angular-message-format.min.js.map" />
-    <Content Include="Scripts\angular\angular-messages.min.js.map" />
-    <Content Include="Scripts\angular\angular-resource.min.js.map" />
-    <Content Include="Scripts\angular\angular-route.min.js.map" />
-    <Content Include="Scripts\angular\angular-sanitize.min.js.map" />
-    <Content Include="Scripts\angular\angular-touch.min.js.map" />
-    <Content Include="Scripts\angular\angular.min.js.map" />
+    <Content Include="Scripts\vendor\angular\errors.json" />
+    <Content Include="Scripts\vendor\angular\angular-animate.min.js.map" />
+    <Content Include="Scripts\vendor\angular\angular-aria.min.js.map" />
+    <Content Include="Scripts\vendor\angular\angular-cookies.min.js.map" />
+    <Content Include="Scripts\vendor\angular\angular-loader.min.js.map" />
+    <Content Include="Scripts\vendor\angular\angular-message-format.min.js.map" />
+    <Content Include="Scripts\vendor\angular\angular-messages.min.js.map" />
+    <Content Include="Scripts\vendor\angular\angular-resource.min.js.map" />
+    <Content Include="Scripts\vendor\angular\angular-route.min.js.map" />
+    <Content Include="Scripts\vendor\angular\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\vendor\angular\angular-touch.min.js.map" />
+    <Content Include="Scripts\vendor\angular\angular.min.js.map" />
     <Content Include="Areas\Administration\Product\Views\Index.cshtml" />
     <Content Include="Areas\Administration\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Home\Views\Index.cshtml" />
     <Content Include="Areas\Administration\Supplier\Views\Index.cshtml" />
     <Content Include="Areas\Administration\Company\Views\Index.cshtml" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\underscore.js" />
-    <Content Include="Scripts\underscore.min.js" />
+    <Content Include="Areas\Administration\Order\Views\Index.cshtml" />
+    <Content Include="Areas\Administration\Order\Views\List.cshtml" />
+    <Content Include="Areas\Administration\Order\Views\Details.cshtml" />
+    <None Include="Scripts\vendor\jQuery\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\vendor\jQuery\jquery-1.10.2.js" />
+    <Content Include="Scripts\vendor\jQuery\jquery-1.10.2.min.js" />
+    <None Include="Scripts\vendor\jQuery\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\vendor\jQuery\jquery.validate.js" />
+    <Content Include="Scripts\vendor\jQuery\jquery.validate.min.js" />
+    <Content Include="Scripts\vendor\jQuery\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\vendor\jQuery\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\vendor\modernizr-2.6.2.js" />
+    <Content Include="Scripts\vendor\respond.js" />
+    <Content Include="Scripts\vendor\respond.min.js" />
+    <Content Include="Scripts\vendor\underscore\underscore.js" />
+    <Content Include="Scripts\vendor\underscore\underscore.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -330,7 +336,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\vendor\jQuery\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -352,13 +358,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Scripts\version.json" />
+    <Content Include="Scripts\vendor\angular\version.json" />
     <Content Include="Scripts\TypeLite.Net4.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TypeLite.Net4.d.ts</LastGenOutput>
     </Content>
     <Content Include="Scripts\Manager.ttinclude" />
-    <Content Include="Scripts\underscore.min.map" />
+    <Content Include="Scripts\vendor\underscore\underscore.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -402,11 +408,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Areas\Administration\Common\Scripts\BaseRepository.ts" />
     <TypeScriptCompile Include="Areas\Administration\Common\Scripts\Names.ts" />
     <TypeScriptCompile Include="Areas\Administration\Company\Scripts\CompanyController.ts" />
     <TypeScriptCompile Include="Areas\Administration\Company\Scripts\CompanyModule.ts" />
     <TypeScriptCompile Include="Areas\Administration\Company\Scripts\ICompanyRepository.ts" />
-    <TypeScriptCompile Include="Areas\Administration\Company\Scripts\_allCompany.ts" />
+    <TypeScriptCompile Include="Areas\Administration\Order\Scripts\OrderController.ts" />
+    <TypeScriptCompile Include="Areas\Administration\Order\Scripts\OrderDetailsController.ts" />
+    <TypeScriptCompile Include="Areas\Administration\Order\Scripts\OrderModule.ts" />
+    <TypeScriptCompile Include="Areas\Administration\Order\Scripts\OrderRepository.ts" />
     <TypeScriptCompile Include="Areas\Administration\Product\Scripts\IProductRepository.ts" />
     <TypeScriptCompile Include="Areas\Administration\Product\Scripts\ProductController.ts" />
     <TypeScriptCompile Include="Areas\Administration\Product\Scripts\ProductModule.ts" />
@@ -418,6 +428,7 @@
     <TypeScriptCompile Include="Scripts\Enums.ts">
       <DependentUpon>TypeLite.Net4.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\northwind\CommonNames.ts" />
     <TypeScriptCompile Include="Scripts\northwind\UnderscoreModule.ts" />
     <TypeScriptCompile Include="Scripts\northwind\_all.ts" />
     <TypeScriptCompile Include="Scripts\TypeLite.Net4.d.ts">

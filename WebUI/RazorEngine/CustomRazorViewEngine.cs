@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
-using System.Web.Routing;
 
-namespace NorthwindStore.WebUI.Areas
+namespace NorthwindStore.WebUI.RazorEngine
 {
     public class CustomRazorViewEngine : RazorViewEngine
     {
@@ -11,29 +9,22 @@ namespace NorthwindStore.WebUI.Areas
         {
             var formats = this.ViewLocationFormats.ToList();
             formats.Add("~/{1}/Views/{0}.cshtml");
-
             this.ViewLocationFormats = formats.ToArray();
+
+            var partials = this.PartialViewLocationFormats.ToList();
+            partials.Add("~/{1}/Views/{0}.cshtml");
+            partials.Add("~/{1}/Views/Partial/{0}.cshtml");
+            this.PartialViewLocationFormats = partials.ToArray();
+
+
+            var areaPartials = this.AreaPartialViewLocationFormats.ToList();
+            areaPartials.Add("~/Areas/{2}/{1}/Views/{0}.cshtml");
+            areaPartials.Add("~/Areas/{2}/{1}/Views/Partials/{0}.cshtml");
+            this.AreaPartialViewLocationFormats = areaPartials.ToArray();
 
             var areaFormats = AreaViewLocationFormats.ToList();
             areaFormats.Add("~/Areas/{2}/{1}/Views/{0}.cshtml");
-
             this.AreaViewLocationFormats = areaFormats.ToArray();
-        }
-
-        public override ViewEngineResult FindView(
-            ControllerContext controllerContext,
-            string viewName,
-            string masterName,
-            bool useCache)
-        {
-            var viewPath = GetViewPath(controllerContext, viewName);
-            //if (FileExists(controllerContext, viewPath))
-            //{
-            //    var view = CreateView(controllerContext, viewPath, "~/Views/Shared/_Layout.cshtml");
-            //    return new ViewEngineResult(view, this);
-            //}
-
-            return base.FindView(controllerContext, viewName, masterName, useCache);
         }
 
         private static string GetViewPath(ControllerContext controllerContext, string viewName)

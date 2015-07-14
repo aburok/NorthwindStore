@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Common.ServiceLocation;
+﻿using Common.ServiceLocation;
 using DataAccess.Company;
+using DataAccess.Order;
 using DataAccess.RavenDb.Company;
+using DataAccess.RavenDb.Order;
 
 namespace DataAccess.RavenDb
 {
@@ -14,6 +11,8 @@ namespace DataAccess.RavenDb
         public static void Init(IServiceLocator serviceLocator)
         {
             serviceLocator.ForUse<ICompanyRepository, CompanyRepositoryRavenDb>();
+
+            serviceLocator.ForUse<IOrderRepository, OrderRepositoryRavenDb>();
         }
     }
 }

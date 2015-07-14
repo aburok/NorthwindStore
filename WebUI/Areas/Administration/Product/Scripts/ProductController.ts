@@ -7,9 +7,9 @@ module NorthwindStore.Admin.Products {
         private scope: IProductScope;
         _: UnderscoreStatic;
 
-        static $inject = [Common.Names.scope,
-            Admin.Names.productRepository,
-            Common.Names.underscore];
+        static $inject = [Names.Angular.scope,
+            Names.Administration.productRepository,
+            Names.Common.underscore];
 
         constructor($scope: IProductScope,
             repository: IProductRepository,

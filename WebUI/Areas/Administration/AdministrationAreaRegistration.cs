@@ -1,9 +1,13 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using NorthwindStore.WebUI.Areas.Administration.Company;
+using NorthwindStore.WebUI.Areas.Administration.Home;
+using NorthwindStore.WebUI.Areas.Administration.Order;
 using NorthwindStore.WebUI.Areas.Administration.Product;
-using NorthwindStore.WebUI.Controllers;
 
 namespace NorthwindStore.WebUI.Areas.Administration
 {
@@ -20,6 +24,8 @@ namespace NorthwindStore.WebUI.Areas.Administration
         {
             var ns = this.GetType().Namespace;
 
+            var namespaces = GetControllersNamespace().ToArray();
+
             context.MapRoute(
                 Name + "_default",
                 Name + "/{controller}/{action}/{id}",
@@ -29,24 +35,24 @@ namespace NorthwindStore.WebUI.Areas.Administration
                     id = UrlParameter.Optional,
                     area = Name
                 },
-                namespaces: new[] { 
-                    typeof(HomeController).Namespace,
-                    typeof(ProductController).Namespace,
-                    typeof(CompanyController).Namespace
-                }
-            );
+                namespaces: namespaces);
 
             Config.BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //GlobalConfiguration.Configure(ConfigureHttpRoutes);
         }
 
-        //private void ConfigureHttpRoutes(HttpConfiguration c)
-        //{
-        //    c.Routes.MapHttpRoute(
-        //        "Administration_API",
-        //        "Administration/api/{controller}/{id}",
-        //        new { id = UrlParameter.Optional });
-        //}
+        private IEnumerable<string> GetControllersNamespace()
+        {
+            var @namespace = typeof(AdministrationAreaRegistration).Namespace;
+
+            var q = Assembly.GetExecutingAssembly().GetTypes()
+                .Where(t => t.IsClass
+                    && t.Namespace != null
+                    && t.Namespace.StartsWith(@namespace)
+                    && typeof(Controller).IsAssignableFrom(t))
+                .Select(c => c.Namespace)
+                .ToList();
+            return q;
+        }
     }
 }

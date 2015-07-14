@@ -199,3 +199,6 @@ FakesAssemblies/
 # Ignore js generated from TypeScript
 /WebUI/Areas/Administration/**/*.js
 /WebUI/Areas/Administration/**/*.js.map
+
+/WebUI/Scripts/northwind/**/*.js
+/WebUI/Scripts/northwind/**/*.js.map

@@ -2,8 +2,8 @@
 
 module NorthwindStore.Admin.Products {
     var storeMVC = angular.module(
-        Admin.Names.moduleName,
-        [Common.Names.moduleName])
-        .controller(Admin.Names.productController, ProductController)
-        .service(Admin.Names.productRepository, ProductRepository);
+        Names.Administration.moduleName,
+        [Names.Common.moduleName])
+        .controller(Names.Administration.productController, ProductController)
+        .service(Names.Administration.productRepository, ProductRepository);
 }

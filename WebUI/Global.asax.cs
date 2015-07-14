@@ -6,6 +6,7 @@ using System.Web.Routing;
 using NorthwindStore.WebUI.Areas;
 using NorthwindStore.WebUI.DependencyResolution;
 using NorthwindStore.WebUI.DependencyResolution.StructureMap;
+using NorthwindStore.WebUI.RazorEngine;
 
 namespace NorthwindStore.WebUI
 {
@@ -22,6 +23,8 @@ namespace NorthwindStore.WebUI
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
             CustomRazorViewEngine.Register();
+
+
         }
     }
 }

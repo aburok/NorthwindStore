@@ -4,7 +4,7 @@ using System.Web.Optimization;
 
 namespace NorthwindStore.WebUI.Areas.Administration.Config
 {
-    public class ScriptsOrder : IBundleOrderer
+    public class NameConventionScriptsOrderer : IBundleOrderer
     {
         private class OrderedBundleFile
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using Common.ServiceLocation;
+using Common.Translations;
 using DataAccess.Product;
 using DataAccess.Queries.RavenDb;
 using DataAccess.RavenDb;
@@ -25,6 +26,8 @@ namespace NorthwindStore.WebUI.DependencyResolution
             DataAccessRavenDbInitialization.Init(Current);
 
             Current.ForUse<IProductRepository, ProductRepository>();
+
+            Current.ForUse<ITranslationService, InMemoryTranslationService>();
         }
     }
 }

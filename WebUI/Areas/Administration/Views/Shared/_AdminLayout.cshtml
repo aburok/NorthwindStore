@@ -10,7 +10,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body >
+<body>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -27,8 +27,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Product Admin", "Index", "Product", new { area = AdministrationAreaRegistration.Name }, new { }))</li>
-                    <li>@Html.ActionLink("Companies", "Index", "Company", new { area = AdministrationAreaRegistration.Name }, new { }))</li>
+                    <li>@Html.ActionLink("Product Admin", "Index", "Product", new { area = AdministrationAreaRegistration.Name }, new { })</li>
+                    <li>@Html.ActionLink("Companies", "Index", "Company", new { area = AdministrationAreaRegistration.Name }, new { })</li>
+                    <li>@Html.ActionLink("Orders", "Index", "Order", new { area = AdministrationAreaRegistration.Name }, new { })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -46,7 +47,8 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/common")
-    @Scripts.Render("~/bundles/names")
+
+    @Scripts.Render("~/bundles/admin/common")
 
     @RenderSection("scripts", required: false)
 </body>

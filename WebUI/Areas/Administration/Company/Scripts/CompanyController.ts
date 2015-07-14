@@ -7,9 +7,9 @@ module NorthwindStore.Admin.Company {
         private scope: ICompanyScope;
 
         static $inject = [
-            Common.Names.scope,
-            Admin.Names.iCompanyRepositoryName,
-            Common.Names.underscore];
+            Names.Angular.scope,
+            Names.Administration.iCompanyRepositoryName,
+            Names.Common.underscore];
 
         constructor($scope: ICompanyScope,
             repo: ICompanyRepository,
@@ -29,7 +29,7 @@ module NorthwindStore.Admin.Company {
         public getAll() {
             var callback = $.proxy(this.getAllCallback, this);
 
-            this.repository.getComapanyList()
+            this.repository.getAllItems()
                 .then(callback);
         }
 
