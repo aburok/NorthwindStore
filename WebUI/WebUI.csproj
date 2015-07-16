@@ -217,6 +217,8 @@
     <Compile Include="Areas\Administration\Product\ProductDto.cs" />
     <Compile Include="Areas\Administration\Supplier\SupplierController.cs" />
     <Compile Include="Areas\Administration\Supplier\SupplierDto.cs" />
+    <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
+    <Compile Include="Areas\Api\Order\OrderApiController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -227,6 +229,7 @@
     <Compile Include="DependencyResolution\StructureMap\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMap\StructuremapMvc.cs" />
     <Compile Include="DependencyResolution\StructureMap\StructureMapScopeModule.cs" />
+    <Compile Include="Extensions\AreaRegistrationContextExtensions.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
