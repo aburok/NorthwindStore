@@ -52,6 +52,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{5AC6395E-6B5F-4358-BD2F-904566307662}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Services.csproj">
+      <Project>{A11CD0E4-BBDF-4317-99D5-0FD514309215}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WebUI\WebUI.csproj">
       <Project>{53F26DFD-F95A-403F-9629-99AC8A53A17A}</Project>
       <Name>WebUI</Name>

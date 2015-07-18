@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NorthwindStore.WebUI.Areas.Api.Order;
 using NUnit.Framework;
 using RestSharp;
+using Services.Order;
 
 namespace AcceptanceTests
 {

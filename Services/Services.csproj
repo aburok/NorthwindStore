@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5AC6395E-6B5F-4358-BD2F-904566307662}</ProjectGuid>
+    <ProjectGuid>{A11CD0E4-BBDF-4317-99D5-0FD514309215}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Northwind.BusinessLogic</RootNamespace>
-    <AssemblyName>Northwind.BusinessLogic</AssemblyName>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,12 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Order\GetOrder\GetOrderRequest.cs" />
+    <Compile Include="Order\GetOrder\GetOrderResponse.cs" />
+    <Compile Include="Order\IOrderApiService.cs" />
+    <Compile Include="Order\MakeOrder\MakeOrderRequest.cs" />
+    <Compile Include="Order\MakeOrder\MakeOrderRespone.cs" />
+    <Compile Include="Order\OrderApiDto.cs" />
+    <Compile Include="Order\OrderApiService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{124A65A1-54AE-4407-B6CE-C4E051632157}</Project>
-      <Name>Common</Name>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{B513AF13-AF80-45CE-A64A-BBE631E56057}</Project>
+      <Name>DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{CD6EA3A6-A5D0-4DCA-A3E1-6A8FD9FE94FA}</Project>
