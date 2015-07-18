@@ -1,5 +1,5 @@
-﻿using Common.Queries;
-using Infrastructure.RavenDb.Configuration;
+﻿using NorthwindStore.Common.Queries;
+using NorthwindStore.Infrastructure.RavenDb.Configuration;
 using Raven.Client;
 using Raven.Client.Document;
 

@@ -1,14 +1,14 @@
-﻿using Common.ServiceLocation;
-using DataAccess.Company;
-using DataAccess.Order;
-using DataAccess.RavenDb.Company;
-using DataAccess.RavenDb.Order;
+﻿using NorthwindStore.Common.ServiceLocation;
+using NorthwindStore.DataAccess.Company;
+using NorthwindStore.DataAccess.Order;
+using NorthwindStore.DataAccess.RavenDb.Company;
+using NorthwindStore.DataAccess.RavenDb.Order;
 
-namespace DataAccess.RavenDb
+namespace NorthwindStore.DataAccess.RavenDb
 {
-    public static class DataAccessRavenDbInitialization
+    public class DataAccessRavenDbInitialization : IModuleInitialization
     {
-        public static void Init(IServiceLocator serviceLocator)
+        public void Initialize(IServiceLocator serviceLocator)
         {
             serviceLocator.ForUse<ICompanyRepository, CompanyRepositoryRavenDb>();
 

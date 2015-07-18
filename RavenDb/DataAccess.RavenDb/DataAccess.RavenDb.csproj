@@ -7,8 +7,8 @@
     <ProjectGuid>{FCA83705-27CF-457F-A447-3A5103280AA0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataAccess.RavenDb</RootNamespace>
-    <AssemblyName>DataAccess.RavenDb</AssemblyName>
+    <RootNamespace>NorthwindStore.DataAccess.RavenDb</RootNamespace>
+    <AssemblyName>NorthwindStore.DataAccess.RavenDb</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

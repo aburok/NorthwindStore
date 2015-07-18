@@ -1,22 +1,25 @@
-﻿using System.Security;
-using DataAccess.Order;
-using Services.Order.GetOrder;
-using Services.Order.MakeOrder;
+﻿using NorthwindStore.BusinessLogic.Commands.Order;
+using NorthwindStore.Common.Commands;
+using NorthwindStore.Services.Order.GetOrder;
+using NorthwindStore.Services.Order.GetOrderList;
+using NorthwindStore.Services.Order.MakeOrder;
 
-namespace Services.Order
+namespace NorthwindStore.Services.Order
 {
     public class OrderApiService : IOrderApiService
     {
-        private readonly IOrderRepository _repository;
+        private readonly ICommandHandler<MakeOrderCommand> _commmHandler;
 
-        public OrderApiService(IOrderRepository repository )
+        public OrderApiService(
+            ICommandHandler<MakeOrderCommand>  commmHandler)
         {
-            _repository = repository;
+            _commmHandler = commmHandler;
         }
 
         public GetOrderResponse GetOrder(GetOrderRequest request)
         {
-            var order = _repository.GetOrder(request.Id);
+            //var order = _repository.GetOrder(request.Id);
+            var order = new Domain.Order();
 
             var response = new GetOrderResponse()
             {
@@ -28,8 +31,15 @@ namespace Services.Order
 
         public MakeOrderRespone MakeOrder(MakeOrderRequest request)
         {
-            var response = new MakeOrderRespone();
-            return response;
+            var makeOrderRespone = new MakeOrderRespone();
+
+            var command = new MakeOrderCommand();
+            return makeOrderRespone;
+        }
+
+        public GetOrderListResponse GetOrderList(GetOrderListRequest request)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

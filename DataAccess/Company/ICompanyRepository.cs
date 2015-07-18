@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace DataAccess.Company
+namespace NorthwindStore.DataAccess.Company
 {
-    using Northwind.Domain;
-
     public interface ICompanyRepository
     {
-        IEnumerable<Company> GetCompanyCollection();
+        IEnumerable<NorthwindStore.Domain.Company> GetCompanyCollection();
     }
 }

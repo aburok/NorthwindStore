@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Globalization;
 
-namespace Common.Translations
+namespace NorthwindStore.Common.Translations
 {
     public interface ITranslationService
     {

@@ -1,4 +1,4 @@
-﻿using Northwind.Domain;
+﻿using NorthwindStore.Domain;
 
 namespace NorthwindStore.WebUI.Products.ViewModels
 {

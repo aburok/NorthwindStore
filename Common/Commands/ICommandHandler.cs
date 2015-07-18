@@ -1,7 +1,12 @@
-﻿namespace Common.Commands
+﻿namespace NorthwindStore.Common.Commands
 {
     public interface ICommandHandler<TCommand> where TCommand : ICommand
     {
-        void Handle(TCommand command);
+        CommandResult Handle(TCommand command);
+    }
+
+    public class CommandResult
+    {
+
     }
 }

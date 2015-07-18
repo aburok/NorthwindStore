@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace DataAccess.Product
+namespace NorthwindStore.DataAccess.Product
 {
     public interface IProductRepository
     {
-        IEnumerable<Northwind.Domain.Product> GetProductList();
+        IEnumerable<NorthwindStore.Domain.Product> GetProductList();
 
-        Northwind.Domain.Product GetProductById(string id);
+        NorthwindStore.Domain.Product GetProductById(string id);
 
-        void Save(Northwind.Domain.Product product);
+        void Save(NorthwindStore.Domain.Product product);
     }
 }

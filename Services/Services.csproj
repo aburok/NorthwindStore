@@ -7,8 +7,8 @@
     <ProjectGuid>{A11CD0E4-BBDF-4317-99D5-0FD514309215}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Services</RootNamespace>
-    <AssemblyName>Services</AssemblyName>
+    <RootNamespace>NorthwindStore.Services</RootNamespace>
+    <AssemblyName>NorthwindStore.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModuleInitialization.cs" />
+    <Compile Include="Order\GetOrderList\GetOrderListRequest.cs" />
+    <Compile Include="Order\GetOrderList\GetOrderListResponse.cs" />
     <Compile Include="Order\GetOrder\GetOrderRequest.cs" />
     <Compile Include="Order\GetOrder\GetOrderResponse.cs" />
     <Compile Include="Order\IOrderApiService.cs" />
@@ -46,9 +49,18 @@
     <Compile Include="Order\MakeOrder\MakeOrderRespone.cs" />
     <Compile Include="Order\OrderApiDto.cs" />
     <Compile Include="Order\OrderApiService.cs" />
+    <Compile Include="Product\IProductApiService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic.Commands\BusinessLogic.Commands.csproj">
+      <Project>{10F0C476-F978-4564-B5AC-4C8B2AA554A6}</Project>
+      <Name>BusinessLogic.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{124A65A1-54AE-4407-B6CE-C4E051632157}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{B513AF13-AF80-45CE-A64A-BBE631E56057}</Project>
       <Name>DataAccess</Name>

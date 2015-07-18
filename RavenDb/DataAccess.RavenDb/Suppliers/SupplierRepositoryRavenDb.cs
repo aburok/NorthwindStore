@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DataAccess.Supplier;
-using Infrastructure.RavenDb;
-using Infrastructure.RavenDb.Configuration;
+using NorthwindStore.DataAccess.Supplier;
+using NorthwindStore.Infrastructure.RavenDb;
 using Raven.Client;
-using Raven.Client.Document;
 
-namespace DataAccess.RavenDb.Suppliers
+namespace NorthwindStore.DataAccess.RavenDb.Suppliers
 {
     public class SupplierRepositoryRavenDb : ISupplierRepository
     {
@@ -18,13 +16,13 @@ namespace DataAccess.RavenDb.Suppliers
             _documentStoreProvider = documentStoreProvider;
         }
 
-        public IEnumerable<Northwind.Domain.Supplier> GetSuppliers()
+        public IEnumerable<NorthwindStore.Domain.Supplier> GetSuppliers()
         {
             using (IDocumentStore store = _documentStoreProvider.GetDocumentStore())
             {
                 using (var session = store.OpenSession())
                 {
-                    return session.Query<Northwind.Domain.Supplier>()
+                    return session.Query<NorthwindStore.Domain.Supplier>()
                         .ToList();
                 }
             }

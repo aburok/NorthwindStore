@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NorthwindStore.Services.Order.GetOrderList;
 using NUnit.Framework;
 using RestSharp;
-using Services.Order;
 
 namespace AcceptanceTests
 {
-    [TestFixture]
+    [TestFixture()]
     public class OrderApiAcceptanceTests
     {
-
         [Test]
         public void GetOrders_Test()
         {
@@ -24,9 +23,9 @@ namespace AcceptanceTests
 
             var content = response.Content;
 
-            var order = client.Execute<List<OrderApiDto>>(request);
+            var order = client.Execute<GetOrderListResponse>(request);
 
-            Assert.AreEqual(90, order.Data.Count);
+            Assert.AreEqual(90, order.Data.OrderList.Count());
         }
     }
 }

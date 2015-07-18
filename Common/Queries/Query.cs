@@ -1,4 +1,4 @@
-﻿namespace Common.Queries
+﻿namespace NorthwindStore.Common.Queries
 {
     public class Query : IQuery
     {

@@ -1,11 +1,11 @@
-﻿using Common.ServiceLocation;
-using Infrastructure.RavenDb.Configuration;
+﻿using NorthwindStore.Common.ServiceLocation;
+using NorthwindStore.Infrastructure.RavenDb.Configuration;
 
-namespace Infrastructure.RavenDb
+namespace NorthwindStore.Infrastructure.RavenDb
 {
-    public static class RavenDbInitialization
+    public class RavenDbInitialization :IModuleInitialization
     {
-        public static void Initialize(IServiceLocator serviceLocator)
+        void IModuleInitialization.Initialize(IServiceLocator serviceLocator)
         {
             serviceLocator.ForUse<IRavenConfiguration, InCodeRavenConfiguration>();
             serviceLocator.ForUse<IDocumentStoreProvider, RequestDocumentStoreProvider>();

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Common.Queries
+namespace NorthwindStore.Common.Queries
 {
     public interface IQuery
     {

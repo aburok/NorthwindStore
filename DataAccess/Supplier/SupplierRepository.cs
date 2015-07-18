@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace DataAccess.Supplier
+namespace NorthwindStore.DataAccess.Supplier
 {
     public interface ISupplierRepository
     {
-        IEnumerable<Northwind.Domain.Supplier> GetSuppliers();
+        IEnumerable<NorthwindStore.Domain.Supplier> GetSuppliers();
     }
 }

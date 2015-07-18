@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using DataAccess.Supplier;
+using NorthwindStore.DataAccess.Supplier;
 
 namespace NorthwindStore.WebUI.Areas.Administration.Supplier
 {

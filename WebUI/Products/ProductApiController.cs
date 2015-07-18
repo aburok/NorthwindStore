@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using DataAccess.Product;
+using NorthwindStore.DataAccess.Product;
 using NorthwindStore.WebUI.Products.ViewModels;
 
 namespace NorthwindStore.WebUI.Products

@@ -7,8 +7,8 @@
     <ProjectGuid>{B513AF13-AF80-45CE-A64A-BBE631E56057}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataAccess</RootNamespace>
-    <AssemblyName>DataAccess</AssemblyName>
+    <RootNamespace>NorthwindStore.DataAccess</RootNamespace>
+    <AssemblyName>NorthwindStore.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

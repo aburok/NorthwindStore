@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DataAccess.Order;
-using Infrastructure.RavenDb;
+using NorthwindStore.DataAccess.Order;
+using NorthwindStore.Infrastructure.RavenDb;
 
-namespace DataAccess.RavenDb.Order
+namespace NorthwindStore.DataAccess.RavenDb.Order
 {
     public class OrderRepositoryRavenDb : IOrderRepository
     {
@@ -14,27 +14,38 @@ namespace DataAccess.RavenDb.Order
             _documentStoreProvider = documentStoreProvider;
         }
 
-        public IEnumerable<Northwind.Domain.Order> GetOrders()
+        public IEnumerable<NorthwindStore.Domain.Order> GetOrderListById(IEnumerable<string> id)
         {
             var store = _documentStoreProvider.GetDocumentStore();
 
             using (var session = store.OpenSession())
             {
-                var result = session
-                    .Query<Northwind.Domain.Order>()
-                    .ToList();
+                IQueryable<NorthwindStore.Domain.Order> query = session
+                    .Query<NorthwindStore.Domain.Order>();
+
+                if (id != null && id.Any())
+                {
+                    query = query.Where(o => id.Contains(o.Id));
+                }
+
+                var result = query.ToList();
                 return result;
             }
         }
 
-        public Northwind.Domain.Order GetOrder(string id)
+        public IEnumerable<NorthwindStore.Domain.Order> GetOrderList()
+        {
+            return GetOrderListById(null);
+        }
+
+        public NorthwindStore.Domain.Order GetOrder(string id)
         {
             var store = _documentStoreProvider.GetDocumentStore();
 
             using (var session = store.OpenSession())
             {
                 var result = session
-                    .Load<Northwind.Domain.Order>(id);
+                    .Load<NorthwindStore.Domain.Order>(id);
 
                 return result;
             }

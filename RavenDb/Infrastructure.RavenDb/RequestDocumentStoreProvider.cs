@@ -1,9 +1,9 @@
 ﻿using System;
-using Infrastructure.RavenDb.Configuration;
+using NorthwindStore.Infrastructure.RavenDb.Configuration;
 using Raven.Client;
 using Raven.Client.Document;
 
-namespace Infrastructure.RavenDb
+namespace NorthwindStore.Infrastructure.RavenDb
 {
     public class RequestDocumentStoreProvider : IDocumentStoreProvider
     {

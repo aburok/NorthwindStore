@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace DataAccess.Order
+namespace NorthwindStore.DataAccess.Order
 {
     public interface IOrderRepository
     {
-        IEnumerable<Northwind.Domain.Order> GetOrders();
+        NorthwindStore.Domain.Order GetOrder(string id);
 
-        Northwind.Domain.Order GetOrder(string id);
+        IEnumerable<NorthwindStore.Domain.Order> GetOrderListById(IEnumerable<string> id);
+
+        IEnumerable<NorthwindStore.Domain.Order> GetOrderList();
     }
 }

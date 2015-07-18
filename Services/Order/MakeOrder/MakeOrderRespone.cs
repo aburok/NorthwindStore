@@ -1,4 +1,4 @@
-﻿namespace Services.Order.MakeOrder
+﻿namespace NorthwindStore.Services.Order.MakeOrder
 {
     public class MakeOrderRespone 
     {

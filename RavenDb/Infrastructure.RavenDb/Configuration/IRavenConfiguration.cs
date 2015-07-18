@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.RavenDb.Configuration
+﻿namespace NorthwindStore.Infrastructure.RavenDb.Configuration
 {
     public interface IRavenConfiguration
     {

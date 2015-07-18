@@ -1,6 +1,6 @@
 using System;
 
-namespace Services.Order
+namespace NorthwindStore.Services.Order
 {
     [Serializable]
     public class OrderApiDto
@@ -10,7 +10,7 @@ namespace Services.Order
         public DateTime OrderedAt { get; set; }
 
 
-        public static OrderApiDto FromDomain(Northwind.Domain.Order order)
+        public static OrderApiDto FromDomain(Domain.Order order)
         {
             return new OrderApiDto()
             {

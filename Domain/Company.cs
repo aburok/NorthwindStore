@@ -1,8 +1,4 @@
-﻿using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Northwind.Domain
+﻿namespace NorthwindStore.Domain
 {
     public class Company
     {

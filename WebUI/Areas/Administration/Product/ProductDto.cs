@@ -9,7 +9,7 @@ namespace NorthwindStore.WebUI.Areas.Administration.Product
 
         public int Units { get; set; }
 
-        public static ProductDto From(Northwind.Domain.Product product)
+        public static ProductDto From(Domain.Product product)
         {
             return new ProductDto()
             {
@@ -18,9 +18,9 @@ namespace NorthwindStore.WebUI.Areas.Administration.Product
             };
         }
 
-        public Northwind.Domain.Product ToProduct()
+        public Domain.Product ToProduct()
         {
-            return new Northwind.Domain.Product()
+            return new Domain.Product()
             {
                 Name= this.Name,
                 UnitsInStock = this.Units

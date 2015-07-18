@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
-using Common.ServiceLocation;
-using Common.Translations;
+using NorthwindStore.Common.ServiceLocation;
+using NorthwindStore.Common.Translations;
 using NorthwindStore.WebUI.DependencyResolution;
 
 namespace NorthwindStore.WebUI.Extensions

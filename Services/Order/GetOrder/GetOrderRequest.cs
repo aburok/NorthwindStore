@@ -1,4 +1,4 @@
-﻿namespace Services.Order.GetOrder
+﻿namespace NorthwindStore.Services.Order.GetOrder
 {
     public class GetOrderRequest
     {

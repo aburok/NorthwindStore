@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using DataAccess.Order;
+using NorthwindStore.DataAccess.Order;
 using WebGrease.Css.Extensions;
 
 namespace NorthwindStore.WebUI.Areas.Administration.Order
@@ -10,7 +10,8 @@ namespace NorthwindStore.WebUI.Areas.Administration.Order
     {
         private readonly IOrderRepository _orderRepository;
 
-        public OrderController(IOrderRepository orderRepository)
+        public OrderController(
+            IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
         }
@@ -34,7 +35,7 @@ namespace NorthwindStore.WebUI.Areas.Administration.Order
         public JsonResult GetOrderList()
         {
             var orderList = _orderRepository
-                .GetOrders()
+                .GetOrderList()
                 .Select(OrderDto.FromModel);
 
             return Json(orderList, JsonRequestBehavior.AllowGet);

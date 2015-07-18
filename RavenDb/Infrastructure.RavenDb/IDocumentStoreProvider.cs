@@ -1,7 +1,7 @@
 ﻿using System;
 using Raven.Client;
 
-namespace Infrastructure.RavenDb
+namespace NorthwindStore.Infrastructure.RavenDb
 {
     public interface IDocumentStoreProvider : IDisposable
     {

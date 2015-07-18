@@ -7,8 +7,8 @@
     <ProjectGuid>{5AC6395E-6B5F-4358-BD2F-904566307662}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Northwind.BusinessLogic</RootNamespace>
-    <AssemblyName>Northwind.BusinessLogic</AssemblyName>
+    <RootNamespace>NorthwindStore.BusinessLogic</RootNamespace>
+    <AssemblyName>NorthwindStore.BusinessLogic</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Order\OrderManagment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,26 +1,23 @@
 ﻿using System.Web.Http;
-using Services.Order;
-using Services.Order.GetOrder;
-using Services.Order.MakeOrder;
+using NorthwindStore.Services.Order;
+using NorthwindStore.Services.Order.GetOrder;
+using NorthwindStore.Services.Order.GetOrderList;
+using NorthwindStore.Services.Order.MakeOrder;
 
-namespace Services.WebApi.Controllers
+namespace NorthwindStore.Services.WebApi.Controllers
 {
     public class OrderApiController : ApiController
     {
         private readonly IOrderApiService _apiService;
 
-        public OrderApiController(IOrderApiService apiService )
+        public OrderApiController(IOrderApiService apiService)
         {
             _apiService = apiService;
         }
 
-        public ActionResult GetOrderList()
+        public GetOrderListResponse GetOrderList(GetOrderListRequest request)
         {
-            var orderList = _orderRepository.GetOrders()
-                .Select(OrderApiDto.FromDomain)
-                .ToList();
-
-            return Json(orderList, JsonRequestBehavior.AllowGet);
+            return _apiService.GetOrderList(request);
         }
 
         public GetOrderResponse GetOrder(GetOrderRequest request)

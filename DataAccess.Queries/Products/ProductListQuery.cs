@@ -1,6 +1,6 @@
-﻿using Common.Queries;
+﻿using NorthwindStore.Common.Queries;
 
-namespace Northwind.DataAccess.Queries.Products
+namespace NorthwindStore.DataAccess.Queries.Products
 {
     public class ProductListQuery : Query
     {

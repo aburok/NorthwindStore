@@ -21,7 +21,7 @@ namespace NorthwindStore.WebUI.Areas.Administration.Order
 
         public string Country { get; set; }
 
-        public static OrderDto FromModel(Northwind.Domain.Order order)
+        public static OrderDto FromModel(Domain.Order order)
         {
             return new OrderDto()
             {

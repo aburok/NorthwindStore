@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Common.Queries;
-using Northwind.DataAccess.Queries.Products;
+using NorthwindStore.Common.Queries;
+using NorthwindStore.DataAccess.Queries.Products;
 
-namespace DataAccess.Product
+namespace NorthwindStore.DataAccess.Product
 {
     public class ProductRepository : IProductRepository
     {
@@ -17,7 +17,7 @@ namespace DataAccess.Product
             _productQueryHandler = productQueryHandler;
         }
 
-        public IEnumerable<Northwind.Domain.Product> GetProductList()
+        public IEnumerable<NorthwindStore.Domain.Product> GetProductList()
         {
             var query = new ProductListQuery();
 
@@ -26,7 +26,7 @@ namespace DataAccess.Product
             return result.Items;
         }
 
-        public Northwind.Domain.Product GetProductById(string id)
+        public NorthwindStore.Domain.Product GetProductById(string id)
         {
             var query = new ProductQuery()
             {
@@ -38,7 +38,7 @@ namespace DataAccess.Product
             return result.Data;
         }
 
-        public void Save(Northwind.Domain.Product product)
+        public void Save(NorthwindStore.Domain.Product product)
         {
             throw new System.NotImplementedException();
         }

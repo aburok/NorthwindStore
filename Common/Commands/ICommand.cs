@@ -1,7 +1,6 @@
-﻿namespace Common.Commands
+﻿namespace NorthwindStore.Common.Commands
 {
     public interface ICommand
     {
-        
     }
 }

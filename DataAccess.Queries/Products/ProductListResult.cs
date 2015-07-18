@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Common.Queries;
-using Northwind.Domain;
+using NorthwindStore.Common.Queries;
+using NorthwindStore.Domain;
 
-namespace Northwind.DataAccess.Queries.Products
+namespace NorthwindStore.DataAccess.Queries.Products
 {
     public class ProductListResult : CollectionQueryResult<Product>
     {

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Web.Mvc;
-using Common.ServiceLocation;
-using Common.Translations;
-using DataAccess.Product;
-using DataAccess.Queries.RavenDb;
+﻿using DataAccess.Queries.RavenDb;
 using DataAccess.RavenDb;
-using Infrastructure.RavenDb;
+using NorthwindStore.Common.ServiceLocation;
+using NorthwindStore.Common.Translations;
+using NorthwindStore.DataAccess.Product;
+using NorthwindStore.DataAccess.RavenDb;
+using NorthwindStore.Infrastructure.RavenDb;
 using NorthwindStore.WebUI.DependencyResolution.StructureMap;
 
 namespace NorthwindStore.WebUI.DependencyResolution
@@ -19,15 +18,13 @@ namespace NorthwindStore.WebUI.DependencyResolution
 
         public static void Register()
         {
-            QueryRavenDbInitialization.Initialize(Current);
-
-            RavenDbInitialization.Initialize(Current);
-
             DataAccessRavenDbInitialization.Init(Current);
 
             Current.ForUse<IProductRepository, ProductRepository>();
 
             Current.ForUse<ITranslationService, InMemoryTranslationService>();
+
+            Current.InitializeModules();
         }
     }
 }

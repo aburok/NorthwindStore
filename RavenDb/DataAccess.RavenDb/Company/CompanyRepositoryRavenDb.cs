@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Channels;
-using DataAccess.Company;
-using Infrastructure.RavenDb;
-using Raven.Client;
+using NorthwindStore.DataAccess.Company;
+using NorthwindStore.Infrastructure.RavenDb;
 
-namespace DataAccess.RavenDb.Company
+namespace NorthwindStore.DataAccess.RavenDb.Company
 {
     public class CompanyRepositoryRavenDb : ICompanyRepository
     {
@@ -16,13 +14,13 @@ namespace DataAccess.RavenDb.Company
             _documentStoreProvider = documentStoreProvider;
         }
 
-        public IEnumerable<Northwind.Domain.Company> GetCompanyCollection()
+        public IEnumerable<NorthwindStore.Domain.Company> GetCompanyCollection()
         {
             var store = _documentStoreProvider.GetDocumentStore();
 
             using (var session = store.OpenSession())
             {
-                var result = session.Query<Northwind.Domain.Company>()
+                var result = session.Query<NorthwindStore.Domain.Company>()
                     .ToList();
                 return result;
             }

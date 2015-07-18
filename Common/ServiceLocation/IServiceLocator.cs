@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Common.ServiceLocation
+namespace NorthwindStore.Common.ServiceLocation
 {
     /// <summary>
     /// Generally avoid to use this directly in logic.

@@ -7,8 +7,8 @@
     <ProjectGuid>{07E3C188-CA92-4032-9B72-F52D2D798415}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataAccess.Queries.RavenDb</RootNamespace>
-    <AssemblyName>DataAccess.Queries.RavenDb</AssemblyName>
+    <RootNamespace>NorthwindStore.DataAccess.Queries.RavenDb</RootNamespace>
+    <AssemblyName>NorthwindStore.DataAccess.Queries.RavenDb</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
