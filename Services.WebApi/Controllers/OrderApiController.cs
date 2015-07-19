@@ -20,7 +20,7 @@ namespace NorthwindStore.Services.WebApi.Controllers
             return _apiService.GetOrderList(request);
         }
 
-        public GetOrderResponse GetOrder(GetOrderRequest request)
+        public GetOrderResponse GetOrder([FromUri] GetOrderRequest request)
         {
             return _apiService.GetOrder(request);
         }

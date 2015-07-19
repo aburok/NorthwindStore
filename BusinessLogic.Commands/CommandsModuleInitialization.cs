@@ -6,11 +6,16 @@ namespace NorthwindStore.BusinessLogic.Commands
 {
     public class CommandsModuleInitialization : IModuleInitialization
     {
-        public void Initialize(IServiceLocator serviceLocator)
+        public static void Initialize(IServiceLocator serviceLocator)
         {
             serviceLocator.ForUse<
                 ICommandHandler<MakeOrderCommand>,
                 MakeOrderCommandHandler>();
+        }
+
+        void IModuleInitialization.Initialize(IServiceLocator serviceLocator)
+        {
+            Initialize(serviceLocator);
         }
     }
 }

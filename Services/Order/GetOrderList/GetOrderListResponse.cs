@@ -4,7 +4,11 @@ namespace NorthwindStore.Services.Order.GetOrderList
 {
     public class GetOrderListResponse
     {
-        public IEnumerable<OrderApiDto> OrderList { get; set; }
+        public GetOrderListResponse()
+        {
+        }
+
+        public List<OrderApiDto> OrderList { get; set; }
 
         public int Page { get; set; }
 

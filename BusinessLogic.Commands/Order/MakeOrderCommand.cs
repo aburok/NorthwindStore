@@ -5,7 +5,7 @@ namespace NorthwindStore.BusinessLogic.Commands.Order
 {
     public class MakeOrderCommand : ICommand
     {
-        public IEnumerable<string> ProdutIdList { get; set; }
+        public IEnumerable<int> ProdutIdList { get; set; }
 
         public string EmployeeId { get; set; }
 

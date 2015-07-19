@@ -5,10 +5,15 @@ namespace NorthwindStore.Infrastructure.RavenDb
 {
     public class RavenDbInitialization :IModuleInitialization
     {
-        void IModuleInitialization.Initialize(IServiceLocator serviceLocator)
+        public static void Initialize(IServiceLocator serviceLocator)
         {
             serviceLocator.ForUse<IRavenConfiguration, InCodeRavenConfiguration>();
             serviceLocator.ForUse<IDocumentStoreProvider, RequestDocumentStoreProvider>();
+        }
+
+        void IModuleInitialization.Initialize(IServiceLocator serviceLocator)
+        {
+            Initialize(serviceLocator);
         }
     }
 }

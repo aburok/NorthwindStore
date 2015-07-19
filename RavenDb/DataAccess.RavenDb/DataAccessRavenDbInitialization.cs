@@ -8,11 +8,16 @@ namespace NorthwindStore.DataAccess.RavenDb
 {
     public class DataAccessRavenDbInitialization : IModuleInitialization
     {
-        public void Initialize(IServiceLocator serviceLocator)
+        public static void Initialize(IServiceLocator serviceLocator)
         {
             serviceLocator.ForUse<ICompanyRepository, CompanyRepositoryRavenDb>();
 
             serviceLocator.ForUse<IOrderRepository, OrderRepositoryRavenDb>();
+        }
+
+        void IModuleInitialization.Initialize(IServiceLocator serviceLocator)
+        {
+            Initialize(serviceLocator);
         }
     }
 }

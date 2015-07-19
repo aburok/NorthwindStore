@@ -14,14 +14,14 @@ namespace NorthwindStore.DataAccess.RavenDb.Order
             _documentStoreProvider = documentStoreProvider;
         }
 
-        public IEnumerable<NorthwindStore.Domain.Order> GetOrderListById(IEnumerable<string> id)
+        public IEnumerable<Domain.Order> GetOrderListById(IEnumerable<int> id)
         {
             var store = _documentStoreProvider.GetDocumentStore();
 
             using (var session = store.OpenSession())
             {
-                IQueryable<NorthwindStore.Domain.Order> query = session
-                    .Query<NorthwindStore.Domain.Order>();
+                IQueryable<Domain.Order> query = session
+                    .Query<Domain.Order>();
 
                 if (id != null && id.Any())
                 {
@@ -33,19 +33,19 @@ namespace NorthwindStore.DataAccess.RavenDb.Order
             }
         }
 
-        public IEnumerable<NorthwindStore.Domain.Order> GetOrderList()
+        public IEnumerable<Domain.Order> GetOrderList()
         {
             return GetOrderListById(null);
         }
 
-        public NorthwindStore.Domain.Order GetOrder(string id)
+        public Domain.Order GetOrder(int id)
         {
             var store = _documentStoreProvider.GetDocumentStore();
 
             using (var session = store.OpenSession())
             {
                 var result = session
-                    .Load<NorthwindStore.Domain.Order>(id);
+                    .Load<Domain.Order>(id);
 
                 return result;
             }

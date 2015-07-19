@@ -36,10 +36,6 @@ namespace NorthwindStore.WebUI.DependencyResolution.StructureMap
                 registry.For(type).LifecycleIs(new UniquePerRequestLifecycle());
             }
 
-            if (type.CanBeCastTo<ApiController>() && !type.IsAbstract)
-            {
-                registry.For(type).LifecycleIs(new UniquePerRequestLifecycle());
-            }
         }
 
         #endregion

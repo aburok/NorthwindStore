@@ -39,6 +39,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="StructureMap, Version=3.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.3.1.5.154\lib\net40\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.3.1.5.154\lib\net40\StructureMap.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -76,6 +84,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\DefaultRegistry.cs" />
+    <Compile Include="App_Start\IoCRegister.cs" />
+    <Compile Include="App_Start\ServiceControllerActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\OrderApiController.cs" />
     <Compile Include="Global.asax.cs">
@@ -97,6 +108,26 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic.Commands\BusinessLogic.Commands.csproj">
+      <Project>{10F0C476-F978-4564-B5AC-4C8B2AA554A6}</Project>
+      <Name>BusinessLogic.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Cache.HttpContext\Common.Cache.HttpContext.csproj">
+      <Project>{D6308E23-5B49-4B65-A7E1-442542355AA5}</Project>
+      <Name>Common.Cache.HttpContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{124A65A1-54AE-4407-B6CE-C4E051632157}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RavenDb\DataAccess.RavenDb\DataAccess.RavenDb.csproj">
+      <Project>{FCA83705-27CF-457F-A447-3A5103280AA0}</Project>
+      <Name>DataAccess.RavenDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RavenDb\Infrastructure.RavenDb\Infrastructure.RavenDb.csproj">
+      <Project>{589C3B83-FD47-4F5B-8947-9E41BCE4EF4C}</Project>
+      <Name>Infrastructure.RavenDb</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{A11CD0E4-BBDF-4317-99D5-0FD514309215}</Project>
       <Name>Services</Name>

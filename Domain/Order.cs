@@ -5,7 +5,7 @@ namespace NorthwindStore.Domain
 {
     public class Order
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string Company { get; set; }
 

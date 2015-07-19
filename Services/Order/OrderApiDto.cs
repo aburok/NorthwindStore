@@ -2,10 +2,12 @@ using System;
 
 namespace NorthwindStore.Services.Order
 {
-    [Serializable]
     public class OrderApiDto
     {
-        public string Id { get; set; }
+        public OrderApiDto()
+        { }
+
+        public int Id { get; set; }
 
         public DateTime OrderedAt { get; set; }
 

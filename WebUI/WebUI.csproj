@@ -217,7 +217,6 @@
     <Compile Include="Areas\Administration\Product\ProductDto.cs" />
     <Compile Include="Areas\Administration\Supplier\SupplierController.cs" />
     <Compile Include="Areas\Administration\Supplier\SupplierDto.cs" />
-    <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -370,7 +369,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Api\Order\" />
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>

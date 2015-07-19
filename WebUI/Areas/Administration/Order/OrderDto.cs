@@ -7,7 +7,7 @@ namespace NorthwindStore.WebUI.Areas.Administration.Order
     [TsClass(Module = "NorthwindStore.Admin.Order")]
     public class OrderDto
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string Company { get; set; }
 
@@ -25,23 +25,13 @@ namespace NorthwindStore.WebUI.Areas.Administration.Order
         {
             return new OrderDto()
             {
-                Id = TranslateIdFromDomain(order.Id),
+                Id = order.Id,
                 Company = order.Company,
                 Country = order.ShipTo.Country,
                 ShipToLine1 = order.ShipTo.Line1,
                 ShipToLine2 = order.ShipTo.Line2,
                 OrderedAt = order.OrderedAt
             };
-        }
-
-        private static string TranslateIdFromDomain(string id)
-        {
-            return id.Replace("/", "__");
-        }
-
-        public static string TranslateIdFromDto(string id)
-        {
-            return id.Replace("__", "/");
         }
     }
 }

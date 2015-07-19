@@ -1,13 +1,13 @@
 ﻿using NorthwindStore.Common.ServiceLocation;
-using NorthwindStore.Services.Order;
+using NorthwindStore.DataAccess.Product;
 
-namespace NorthwindStore.Services
+namespace NorthwindStore.DataAccess
 {
-    public class ModuleInitialization : IModuleInitialization
+    public class DataAcessModuleInitialization :IModuleInitialization
     {
         public static void Initialize(IServiceLocator serviceLocator)
         {
-            serviceLocator.ForUse<IOrderApiService, OrderApiService>();
+            serviceLocator.ForUse<IProductRepository, ProductRepository>();
         }
 
         void IModuleInitialization.Initialize(IServiceLocator serviceLocator)

@@ -42,11 +42,10 @@ namespace NorthwindStore.WebUI.Areas.Administration.Order
         }
 
         [HttpGet]
-        public JsonResult GetOrder(string id)
+        public JsonResult GetOrder(int id)
         {
-            var domainId = OrderDto.TranslateIdFromDto(id);
             var order = _orderRepository
-                .GetOrder(domainId);
+                .GetOrder(id);
 
             return Json(OrderDto.FromModel(order), JsonRequestBehavior.AllowGet);
         }
